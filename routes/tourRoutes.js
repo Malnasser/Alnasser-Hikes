@@ -1,8 +1,11 @@
 const { Router } = require('express');
 const tourController = require('../controllers/tourController');
 const authController = require('../controllers/authController');
+const reviewRouter = require('./reviewRoutes');
 
 const tourRouter = Router();
+
+tourRouter.use('/:tourId/reviews', reviewRouter);
 
 tourRouter
   .route('/')
